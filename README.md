@@ -1,31 +1,29 @@
-# zabbix-openvpn 
-Zabbix 3.0
+# zabbix-openvpn
 
-Script for OpenVPN users monitoring.
-It shows an OpenVPN user’s status, and its uplink and downlink traffic.
-The “items” by the files certificates names are made using LLD.
+Script for OpenVPN users monitoring.  
+It shows an OpenVPN user’s status, and its uplink and downlink traffic.  
+The "items" by the files certificates names are made using LLD.
 
-Setup:
+#### Supported versions
+ - Zabbix 3.0
+ - Zabbix 4.0
 
-1)	 Copy the file discover_vpn.sh to any directory on the server were  OpenVPN  is(for example	/etc/zabbix/scripts/discover_vpn.sh ). In this file specify the path to directory where OpenVPN certificates are (line №3).
+## Setup
 
-2)	 Copy all lines from “zabbix_agentd.txt” file and paste to the end of zabbix agent  config (/etc/zabbix/zabbix_agentd.conf). Probably, will be necessary to change the path to  discover_vpn.sh. 
+1. On the OpenVPN server, copy the scripts to any directory, for example `/etc/zabbix/scripts`:
+```console
+$ mkdir /etc/zabbix/sripts
+$ cp *.sh /etc/zabbix/scripts
+$ chmod +x /etc/zabbix/scripts/*.sh
+```
+Customize `/etc/zabbix/scripts/discover_vpn.sh` specifing the path to directory where OpenVPN certificates are (line #3).
+2. Copy `userparameter_openvpn.conf` into Zabbix agent configuration directory:
+```console
+$ cp userparameter_openvpn.conf /etc/zabbix/zabbix_agentd.d/
+```
+The items defined read informations from OpenVPN logs, so:
+ - ensure openvpn log paths are correct;
+ - ensure log files are readable from `zabbix` user;
+ - ensure SELinux permit to `zabbix` user read those files.
 
-3)	 Import openvpn.xml to zabbix template.
-
-# zabbix-openvpn 
-Zabbix 3.0
-
-Скрипт мониторинга пользователей OpenVPN.
-Проверяется статус каждого пользователя OpenVPN, и его входящий\исходящий трафик.
-
-С помощью LLD создаются "элементы данных" по имени файлов сертификатов.
-
-Установка:
-1)	скопировать файл discover_vpn.sh в любую директорию, на сервере с OpenVPN (например, /etc/zabbix/scripts/discover_vpn.sh)
-	в этом файле указать путь до папки с сетификатами OpenVPN (строка №3).
-	
-2)	из файла zabbix_agentd.txt скопировать все строки в конец конфига zabbix агента (по умолчанию, /etc/zabbix/zabbix_agentd.conf)
-	возможно потребуется изменить путь до discover_vpn.sh
-	
-3)	импортировать в zabbix шаблон openvpn.xml
+3. On the Zabbix server, import `openvpn.xml` template and assign it to the OpenVPN server.

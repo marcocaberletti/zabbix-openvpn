@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>3.0</version>
-    <date>2016-08-17T11:07:00Z</date>
+    <version>3.4</version>
+    <date>2018-01-04T10:16:11Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -24,20 +24,18 @@
             </applications>
             <items>
                 <item>
-                    <name>openvpn num_user</name>
+                    <name>OpenVPN port</name>
                     <type>0</type>
                     <snmp_community/>
-                    <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>num_user.openvpn</key>
-                    <delay>120</delay>
-                    <history>90</history>
-                    <trends>365</trends>
+                    <key>net.udp.listen[1194]</key>
+                    <delay>1m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
                     <units/>
-                    <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -45,11 +43,8 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
-                    <data_type>0</data_type>
                     <authtype>0</authtype>
                     <username/>
                     <password/>
@@ -65,6 +60,91 @@
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>openvpn num_user</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>num_user.openvpn</key>
+                    <delay>2m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>OpenVPN</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>OpenVPN process</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>proc.num[openvpn,,,]</key>
+                    <delay>1m</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>OpenVPN</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <master_item/>
                 </item>
             </items>
             <discovery_rules>
@@ -84,7 +164,6 @@
                     <snmpv3_authpassphrase/>
                     <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
                     <authtype>0</authtype>
@@ -98,24 +177,22 @@
                         <formula/>
                         <conditions/>
                     </filter>
-                    <lifetime>1</lifetime>
+                    <lifetime>1d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
                             <name>openvpn byte_received {#VPNUSER}</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>user_byte_received.openvpn[{#VPNUSER}]</key>
                             <delay>120</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>b\s</units>
-                            <delta>1</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -123,11 +200,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -143,23 +217,29 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>10</type>
+                                    <params/>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
                             <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>openvpn byte_sent {#VPNUSER}</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>user_byte_sent.openvpn[{#VPNUSER}]</key>
                             <delay>120</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>b\s</units>
-                            <delta>1</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -167,11 +247,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -187,23 +264,29 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>10</type>
+                                    <params/>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
                             <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                         <item_prototype>
                             <name>openvpn user_status openvpn {#VPNUSER}</name>
                             <type>0</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
                             <key>user_status.openvpn[{#VPNUSER}]</key>
                             <delay>120</delay>
-                            <history>90</history>
-                            <trends>365</trends>
+                            <history>90d</history>
+                            <trends>365d</trends>
                             <status>0</status>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>0</delta>
                             <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -211,11 +294,8 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -231,7 +311,10 @@
                             </applications>
                             <valuemap/>
                             <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
                             <application_prototypes/>
+                            <master_item_prototype/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes/>
@@ -314,8 +397,10 @@
                         </graph_prototype>
                     </graph_prototypes>
                     <host_prototypes/>
+                    <jmx_endpoint/>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens>
@@ -373,4 +458,38 @@
             </screens>
         </template>
     </templates>
+    <triggers>
+        <trigger>
+            <expression>{Template App OpenVPN:proc.num[openvpn,,,].sum(#3)}=0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>OpenVPN service is down on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Template App OpenVPN:net.udp.listen[1194].sum(#3)}=0</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>OpenVPN service is not reachable on {HOST.NAME}</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+    </triggers>
 </zabbix_export>
